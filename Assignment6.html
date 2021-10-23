@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color: #ddbb90">
+	<h1 style="text-align:center" position=fixed>Amicable Numbers</h1>
+	<h3 style=position=fixed>Please enter two numbers: </h3>
+	<input id="number">
+	<input id="number2">
+	<button type="button" onclick="first_function()">Submit</button>
+	<p id="text_after_click"></p>
+
+	<script language="javascript">
+
+		function first_function() {
+			var x = document.getElementById("number").value;
+			var y = document.getElementById("number2").value;
+			var factorsx = [];
+			var sumx = 0;
+			var factorsx_length = 0;
+			var factorsy = [];
+			var sumy = 0;
+			var factorsy_length = 0;
+
+			for (let i = 0; i < x; i++){
+			  if (x % i === 0) {
+			    factorsx.push(i);
+			    sumx += i;
+			    factorsx_length = factorsy_length + 1;
+			  }
+			}
+			for (let i = 0; i < y; i++){
+			  if (y % i === 0) {
+			    factorsy.push(i);
+			    sumy += i;
+			    factorsx_length = factorsy_length + 1;
+			  }
+			}
+			let text;
+			if ((x == sumy) && (y == sumx)) {
+				text = "The numbers " + x + " and " + y + " are amicable!";
+			} else if ((x != sumy) && (y != sumx)) {
+				text = "The numbers " + x + " and " + y + " are not amicable :(";
+			} else {
+				text = "The numbers " + x + " and " + y + " are not amicable :(";
+			}
+			alert("The factors of " + x + " are: " + factorsx + " and the factors of " + y + " are: " + factorsy);
+			document.getElementById("text_after_click").innerHTML = text;
+		}
+	</script>
+</body>
+</html>
